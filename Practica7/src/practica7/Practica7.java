@@ -12,40 +12,42 @@ public class Practica7 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        int numEstudiants = Utils.LlegirInt("Quants estudiats vols?");
+        int numEstudiants = Utils.LlegirInt("Quants estudiats vols? ");
         Estudiant[] estudiants = new Estudiant[numEstudiants];
 
         System.out.println("Omple les dades del tutor");
-        System.out.println("Introdueix el seu nom: ");
+        System.out.print("Introdueix el seu nom: ");
         String nom = scan.nextLine();
-        System.out.println("Introdueix el seu cognom: ");
+        System.out.print("Introdueix el seu cognom: ");
         String cognom = scan.nextLine();
-        System.out.println("Introdueix la seva formacio: ");
+        System.out.print("Introdueix la seva formacio: ");
         String formacio = scan.nextLine();
 
         Professor tutor = new Professor(nom, cognom, formacio);
 
+        System.out.println("Omple les dades dels alumnes");
         for (int i = 0; i < numEstudiants; i++) {
-            System.out.println("DNI: ");
+            System.out.print("DNI: ");
             String dni = scan.nextLine();
-            System.out.println("Nom: ");
+            System.out.print("Nom: ");
             nom = scan.nextLine();
-            System.out.println("cognom: ");
+            System.out.print("cognom: ");
             cognom = scan.nextLine();
             int notaFinal = Utils.LlegirInt("Nota final: ");
 
             estudiants[i] = new Estudiant(dni, nom, cognom, notaFinal);
 
         }
+        
+        Grup gr = new Grup("1 DAM", estudiants, tutor);
 
-        System.out.println("Grup:");
-        System.out.println(Grup.toString(estudiants));
+        System.out.println(gr.toString());
 
-        int numAprovats = Grup.numAprovats(estudiants);
-        System.out.println("Nombre d'estudiants aprovats: " + numAprovats);
+        
+        System.out.println("Nombre d'estudiants aprovats: " + gr.numAprovats());
 
         // Imprimir la llista d'estudiants aprovats
-        Estudiant[] estudiantsAprovats = Grup.estudiantsAprovats(estudiants);
+        Estudiant[] estudiantsAprovats = gr.estudiantsAprovats();
         System.out.println("Llista d'estudiants aprovats:");
         for (int i = 0; i<estudiants.length; i++) {
             System.out.println(estudiants[i]);
