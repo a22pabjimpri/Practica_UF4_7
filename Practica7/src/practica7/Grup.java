@@ -20,16 +20,16 @@ public class Grup {
         this.tutor = tutor;
     }
 
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Grup: " + nom + "\n");
-        sb.append("Tutor: " + tutor.toString() + "\n");
-        sb.append("Estudiants:\n");
-        for (int i = 0; i < estudiants.length; i++) {
-            sb.append(estudiants[i].toString() + "\n");
+        String result = "Grup: " + nom + "\n";
+        result += "Tutor: " + tutor.getNom() + " " + tutor.getCognom() + "\n";
+        result += "Estudiants: \n";
+        for (Estudiant estudiant : estudiants) {
+            result += estudiant.toString() + "\n";
         }
-        return sb.toString();
+        return result;
     }
 
     public int numAprovats() {

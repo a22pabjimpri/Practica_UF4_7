@@ -49,8 +49,8 @@ public class Practica7 {
         // Imprimir la llista d'estudiants aprovats
         Estudiant[] estudiantsAprovats = gr.estudiantsAprovats();
         System.out.println("Llista d'estudiants aprovats:");
-        for (int i = 0; i<estudiants.length; i++) {
-            System.out.println(estudiants[i]);
+        for (int i = 0; i<estudiantsAprovats.length; i++) {
+            System.out.println(estudiantsAprovats[i]);
         }
 
     }
